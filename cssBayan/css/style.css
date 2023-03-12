@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgba(175, 241, 251, 0.9);
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: local('Montserrat-Regular'),
+    url('../assets/fonts/Montserrat-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+  
+@font-face {
+    font-family: 'Montserrat';
+    src: local('Montserrat-Bold'),
+    url('../assets/fonts/Montserrat-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+.container {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+.header {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.accordion {
+    background-color: rgba(137, 228, 241, 0.9);
+}
+
+.accordion:not(:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+.accordion__item {
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+}
+
+.input {
+    display: none;
+}
+
+.row {
+    padding: 1rem;
+    border-top: 0.1rem solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    color: rgb(150, 84, 213);
+    transition: all 1s ease-in-out;
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+    opacity: 0;
+    background-image: url(../assets/img/plus.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all .5s ease-in-out;  
+}
+
+.memas {
+    width: 100%;
+    height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all 1s ease-in-out;
+}
+
+/* checked */ 
+
+.input:checked ~ .row {
+    color: black;
+}
+
+.input:checked ~ .icon {
+    background-image: url(../assets/img/cross.svg);
+}
+
+.input:checked ~ .memas {
+    height: 20rem;
+    opacity: 1;
+}
+
+/* active */ 
+
+.accordion__item:active .row {
+    color: white !important;
+    background-color: rgba(107, 191, 204, 0.9);
+}
+
+.accordion__item:active .memas {
+    cursor: wait;
+    filter: blur(0.05rem);
+    background-color: rgba(107, 191, 204, 0.9);
+}
+
+@media (hover: hover) {
+    .container:hover .row {
+        color: black;
+    }
+    .container:hover .icon {
+        opacity: 1;
+    }
+    .accordion__item:hover .icon {
+        opacity: 1;
+        background-image: url(../assets/img/cross.svg);
+    }
+    .accordion__item:hover .memas {
+        height: 20rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 3rem 2rem;
+    }
+    .header {
+        font-size: 2rem;
+    }
+    .row {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 2rem 1.5rem;
+    }
+    .header {
+        font-size: 1.5rem;
+    }
+    .row {
+        font-size: 1rem;
+    }
+    .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+
